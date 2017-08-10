@@ -11,19 +11,22 @@ unsetopt correct
 unsetopt correct_all
 
 # User configuration
-
-export PATH="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 export ANDROID_HOME=/Applications/Android\ Studio.app/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME=$(/usr/libexec/java_home)
+
+if [ -f /usr/libexec/java_home ]; then
+        export JAVA_HOME=$(/usr/libexec/java_home)i
+        export PATH=$PATH:$JAVA_HOME/bin
+fi
+
 alias et='ember test --server'
 alias es='ember s'
 alias bs='bundle exec rspec'
 alias be='bundle exec'
 alias rly='bundle install; rake db:migrate; gco db/schema.rb; touch tmp/restart.txt'
 
-. ~/z/z.sh
 ulimit -n 4096
 
 export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -51,6 +54,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 export INTERCOM_USER=lorcan
 
-export PATH=$HOME/.pilot/shims:$HOME/.pilot/bin:$PATH
-eval $(pilot env)
-
+if hash pilot 2>/dev/null; then
+	export PATH=$HOME/.pilot/shims:$HOME/.pilot/bin:$PATH
+	eval $(pilot env)
+fi
