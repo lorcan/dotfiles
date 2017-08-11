@@ -15,10 +15,6 @@
 	prune-branches = !git branch --merged | grep -v \"\\*\" | grep -v master | xargs -n 1 git branch -d
 [branch "master"]
 	pushremote = nopushallowed
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
 [fetch]
 	prune = true
 [filter "lfs"]
@@ -30,4 +26,5 @@
 	autosquash = true
 
 [core]
-	excludesfile = /Users/lorcan/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	editor = vim
