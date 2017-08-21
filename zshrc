@@ -17,7 +17,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 if [ -f /usr/libexec/java_home ]; then
-        export JAVA_HOME=$(/usr/libexec/java_home)i
+        export JAVA_HOME=$(/usr/libexec/java_home)
         export PATH=$PATH:$JAVA_HOME/bin
 fi
 
