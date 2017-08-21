@@ -54,7 +54,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 export INTERCOM_USER=lorcan
 
-if hash pilot 2>/dev/null; then
-	export PATH=$HOME/.pilot/shims:$HOME/.pilot/bin:$PATH
+if [ -f "$HOME/.pilot/bin/pilot" ]; then
+	export PATH="$HOME/.pilot/bin:$PATH"
 	eval $(pilot env)
 fi
