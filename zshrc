@@ -17,7 +17,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 if [ -f /usr/libexec/java_home ]; then
-        export JAVA_HOME=$(/usr/libexec/java_home)i
+        export JAVA_HOME=$(/usr/libexec/java_home)
         export PATH=$PATH:$JAVA_HOME/bin
 fi
 
@@ -54,7 +54,12 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 export INTERCOM_USER=lorcan
 
-if hash pilot 2>/dev/null; then
-	export PATH=$HOME/.pilot/shims:$HOME/.pilot/bin:$PATH
+if [ -f "$HOME/.pilot/bin/pilot" ]; then
+	export PATH="$HOME/.pilot/bin:$PATH"
 	eval $(pilot env)
+fi
+
+if [ -f "$HOME/.rbenv/bin/rbenv" ]; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	eval "$(rbenv init -)"
 fi
