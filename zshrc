@@ -59,7 +59,8 @@ if [ -f "$HOME/.pilot/bin/pilot" ]; then
 	eval $(pilot env)
 fi
 
-if [ -f "$HOME/.rbenv/bin/rbenv" ]; then
-	export PATH="$HOME/.rbenv/bin:$PATH"
+if [ -d "$HOME/.rbenv/shims" ]; then
+	export PATH="$HOME/.rbenv/shims:$PATH"
 	eval "$(rbenv init -)"
 fi
+
