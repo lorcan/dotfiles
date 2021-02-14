@@ -22,7 +22,3 @@ inoremap <C-U> <C-G>u<C-U>
 if has('mouse')
   set mouse=a
 endif
-
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
