@@ -13,6 +13,7 @@
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	recent = !git for-each-ref --sort=-committerdate refs/heads/  | head
 	prune-branches = !git branch --merged | grep -v \"\\*\" | grep -v master | xargs -n 1 git branch -d
+	prune-gc = !git prune && rm .git/gc.log
 [branch "master"]
 	pushremote = nopushallowed
 [fetch]
