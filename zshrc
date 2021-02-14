@@ -12,14 +12,6 @@ unsetopt correct_all
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-export ANDROID_HOME=/Applications/Android\ Studio.app/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-if [ -f /usr/libexec/java_home ]; then
-        export JAVA_HOME=$(/usr/libexec/java_home)
-        export PATH=$PATH:$JAVA_HOME/bin
-fi
 
 alias et='ember test --server'
 alias es='ember s'
